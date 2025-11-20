@@ -4,106 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Geometric Hypergraph Coloring</title>
-    <style>
-      body {
-        margin: 0;
-        font-family: "Helvetica Neue", sans-serif;
-        line-height: 1.6;
-        background: #fff;
-        color: #333;
-        display: flex;
-      }
-
-      header {
-        width: 100vw;
-        padding: 2rem 0;
-        background: linear-gradient(90deg, #007cf0, #00dfd8);
-        color: white;
-        text-align: center;
-        position: absolute;
-        top: 0px;
-        right: 0px;
-      }
-
-      nav {
-        width: 220px;
-        padding: 7rem 1.2rem 2rem 1.2rem;
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100vh;
-        background: #fff;
-        overflow-y: auto;
-        border-right: none;
-      }
-
-      nav h2 {
-        font-size: 1.1rem;
-        border-left: 4px solid #007cf0;
-        padding-left: 0.5rem;
-        margin-bottom: 1rem;
-      }
-
-      nav ul {
-        list-style: none;
-        padding: 0;
-        padding-right: 20px;
-        margin: 0;
-        margin-top: 10rem;
-        text-align: right;
-        border-right: 4px solid #666;
-      }
-
-      nav li {
-        margin: 0.8rem 0;
-      }
-
-      nav a {
-        text-decoration: none;
-        color: #666;
-        font-weight: 500;
-      }
-
-      main {
-        margin-left: 240px;
-        padding: 7rem 3rem 2rem 3rem;
-        flex: 1;
-        max-width: 900px;
-      }
-
-      section {
-        margin-bottom: 3rem;
-      }
-
-      hr {
-        border: none;
-        height: 2px;
-        background: #eee;
-        margin: 2rem auto;
-        width: calc(100% - 2.4rem);
-      }
-
-      .meta {
-        margin-top: 10rem;
-        margin-bottom: 2rem;
-        padding-left: 0.5rem;
-        border-left: 4px solid #007cf0;
-      }
-
-      .meta p {
-        margin: 0.2rem 0;
-        color: #666;
-      }
-    </style>
+    <title>Polychromatic Coloring of Tuples in Hypergraphs</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
   </head>
   <body>
-    <nav>
+    <nav class="nav">
       <ul>
+        <li><a href="#abstract">Abstract</a></li>
         <li><a href="#intro">Introduction</a></li>
-        <li><a href="#demo1">Demo 1: Polychromatic Disks</a></li>
-        <li><a href="#demo2">Demo 2: ln k Bound</a></li>
-        <li><a href="#demo3">Demo 3: Tuple Depth</a></li>
+        <li><a href="#prelimin">Preliminaries</a></li>
+        <li><a href="#demo1">The 3.7<sup>k</sup> Threshold</a></li>
         <li><a href="#biblio">Bibliography</a></li>
       </ul>
     </nav>
@@ -112,45 +23,172 @@
         <h1>Polychromatic Coloring of Tuples in Hypergraphs</h1>
       </header>
       <div class="meta">
-        <p><strong>Author:</strong> Your Name</p>
-        <p><strong>Date:</strong> November 2025</p>
+        <p><strong>Author:</strong> Oleksandr Barkov</p>
+        <p><strong>Year:</strong> 2025</p>
       </div>
 
-      <section id="intro">
+      <section id="abstract" class="sec-1">
+        <h2>Abstract</h2>
+        <p>
+          In mathematics, a <strong>hypergraph</strong> is a generalization of a
+          graph in which an edge can join any number of vertices. In contrast,
+          in an ordinary graph, an edge connects exactly two vertices.<a
+            href="#ref1"
+            class="ref"
+            >[1]</a
+          ><br />
+          A <strong>tuple</strong> is a subset of vertices of such graph.<br />
+          A <strong>hyperedge</strong> is a single connection that can join any
+          number of vertices at once, for example, all vertices of a
+          <em>t-tuple</em>, unlike a usual edge which joins only 2.<br />
+          A <strong>coloring</strong> is a mapping of <em>t</em> tuples into
+          <em>k</em> colors (assigning particular color to a tuple of vertices).
+          A coloring is called <em>(t,k,f) polychromatic</em> if each hyperedge
+          that has at least f vertices, contains tuples of all the k colors.<br />
+          <em>f<sub>H</sub>(t,k)</em> is the smallest number of vertices
+          <em>f</em> such that we can color all <em>t-tuples</em> of a
+          hypergraph <em>H</em> with <em>k</em> colors.<br />
+          In this work we focus on the case of 2-tuples (pairs), i.e.
+          <em>t</em>=2.
+        </p>
+        <section class="overview-figure">
+          <figure class="center-figure">
+            <img
+              src="/imgs/hyperedge_illustration.png"
+              alt="Hyperedge illustration"
+            />
+            <figcaption>Figure 1. Hyperedge illustration.</figcaption>
+          </figure>
+        </section>
+      </section>
+
+      <section id="intro" class="sec-2">
         <h2>Introduction</h2>
         <p>
-          This page presents an interactive exploration of hypergraph coloring
-          theorems from the referenced paper. It includes a series of
-          simulations and visualizations designed to illustrate key
-          combinatorial geometry results related to tuples, VC-dimension, and
-          polychromatic coloring in geometric hypergraphs.
+          First, we briefly recall the notion of
+          <strong>cover-decomposition</strong>. Suppose we have many geometric
+          shapes (disks, squares, polygons) that together cover every point of
+          some region, and in fact every point is covered several times. A
+          family of shapes is called <em>cover-decomposable</em> if, whenever
+          the covering is "thick enough", we can split the shapes into a few
+          groups (typically 2) so that each group still covers every point. In
+          the 2-color case, this means we can color each shape red or blue,
+          without moving or cutting any shape, in such a way that every point is
+          covered by at least one red shape and at least one blue shape.
         </p>
-      </section>
-
-      <section id="demo1">
-        <h2>Demo 1: Polychromatic Disks</h2>
         <p>
-          Explain the f_H(2,k) &lt; 3.7^k concept here and embed the first demo.
+          <strong>Polychromatic coloring</strong> and
+          <strong>cover-decomposition</strong> are interwined concepts in
+          hypergraph theory with a rich history. The core idea is to color
+          vertices so that every "sufficiently large" hyperedge is
+          <em>polychromatic</em> - meaning it contains points of all the
+          different colors. These problems have been studied since 1980s
+          [39,40,42,43] and remain a lively area of research today
+          [1,2,14,16,18,46].
+        </p>
+        <p>
+          A key question that sparked much of this study was posed by Pach in
+          1980 [39]. He asked whether there is a universal constant
+          <em>f</em> such that any finite set of points in the plane can be
+          colored with 2 colors in a way that every unit disk containing at
+          least <em>f</em> of these points will have points of both colors. In
+          other words, can we avoid a one-color <em>monochromatic</em> disk no
+          matter how we 2-color the plane, provided the disk covers sufficiently
+          many points. In 2016 Pach and Pálvölgyi [44] proved that the answer is
+          no - for any number <em>f ∈ ℕ</em>, there's a finite set of points
+          <em>P</em> in the plane such that for any 2-coloring of <em>P</em>,
+          one can find a unit disk containing at least <em>f</em> points of one
+          color only. Their result showed that unit disks in the plane are not
+          <em>cover-decomposable</em> under 2-colorings.
+        </p>
+        <p>
+          Naturally, researchers considered similar questions for other shapes
+          and for more than 2 colors. For instance, if the region is a convex
+          polygon instead of a disk, the outcome is positive. Pálvölgyi and Tóth
+          [45] showed that convex polygons are cover-decomposable. Subsequent
+          work even improved the bounds, showing that one can choose
+          <em>f(k)</em> on the order of <em>k</em> [8,26].
+        </p>
+        <p>
+          The difficulty with disks and other non-cover-decomposable cases
+          naturally leads to a question: if coloring single vertices doesn't
+          work, could we color larger groups of vertices instead? This idea
+          gives rise to <strong>tuple coloring</strong>, a generalization of the
+          problem. Instead of assigning colors to individual points, we assign
+          colors to every ordered tuple of <em>t</em> points.
         </p>
       </section>
 
-      <section id="demo2">
-        <h2>Demo 2: ln k Bound</h2>
-        <p>Explain the f_H(2,k) ≤ √(c k ln k) bound and its visualization.</p>
+      <section id="prelimin" class="sec-3">
+        <h2>Preliminaries</h2>
+        <p>First we explain defintions required to proceed.</p>
+        <p>
+          <strong>Shrinkability</strong> is a hypergraph property when any
+          hyperedge <em>e</em> can be shrinked to a sub-edge <em>e'</em> of any
+          desired size(up to the size of the initial hyperedge) and that
+          sub-edge is still an edge of the hypergraph.
+        </p>
+        <p>
+          The <strong>VC-dimension</strong> of a hypergraph is a measure of its
+          complexity. A set of points <em>X</em> is said to be
+          <strong>shattered</strong> in a hypergraph <em>H</em> if, by intersecting edges
+          with <em>X</em> we can realize every possible pattern of which points
+          of <em>X</em> are inside and which are outside, in other words 
+          <em>shatter</em> the points. <strong>VC-dimension</strong> of a hypergraph 
+          is the size of the largest <em>shattered</em> set.
+          <section class="overview-figure">
+            <figure class="center-figure">
+              <img
+                src="/imgs/points_shattering.png"
+                alt="Points shattering"
+              />
+              <figcaption>Figure 2. Points shattering.</figcaption>
+            </figure>
+          </section>
+        </p>
+        <p>
+          <strong>Depth</strong> of a tuple <em>d<sub>H</sub>(S), S ⊆ V</em> 
+          is the minimum number of other vertices included inside the disk, 
+          formed by S, in other words how many other points the disk containing 
+          the tuple is forced to include. No matter which hyperedge we pick that 
+          contains this tuple, we are forced to take <em>d<sub>H</sub>(S)</em> other vertices
+          along with it.
+        </p>
+        <p>
+          <strong>&epsilon;-<em>t</em>-Net</strong> is a subset of <em>t-tuples</em> of <em>V</em> if 
+          any hyperedge in <em>E</em> (whose size is up to |V|) contains at least one 
+          of the chosen <em>t-tuples</em>.
+        </p>
       </section>
 
-      <section id="demo3">
-        <h2>Demo 3: Tuple Depth</h2>
-        <p>Explain the n/c depth for (d+1)-tuples with VC-dimension d.</p>
+      <section id="demo1" class="sec-4">
+        <h2>Polychromatic Pairs in Disks — the 3.7<sup>k</sup> Threshold</h2>
+        <p>We start by presenting upper bounds on <em>f(t,k)</em> for hypergraphs. It is intersecting
+          because for abstract hypergraphs, <em>f(t,k)</em> is <u>unbounded</u> even if the hypergraph is 
+          uniform(all hyperedges have the same size) and <em>k</em>(number of colors) is 2. This is due to
+          Ramsey theorem [35]: given a tuple size <em>t</em> and colors <em>k</em>, for every way to color
+          all <em>t-tuples</em> with <em>k</em> colors, we can always find a subset of <em>m</em> vertices
+          whose every <em>t-tuple</em> has the same color.
+        </p>
+        <p>
+          By [44] <em>f(t,2)</em> with t=1 is unbounded for hypergraphs that are defined by points 
+          and disks. However, this is not the case for <em>t</em>=2. 
+        </p>
+        <p><strong>Theorem 1.5.</strong>
+          Let <em>H</em> be the family that contains any hypergraph
+          <em>H</em> that can be obtained by taking a finite set
+          <em>P</em> of points in &#8477;<sup>2</sup> in general position, setting
+          V(H) := P and E(H) := { d &cap; P : d is a disk in &#8477;<sup>2</sup> }.
+          Then for any natural number <em>k</em> it holds that
+          f<sub>H</sub>(2, k) &le; 3.7<sup>k</sup>.
+        </p>
       </section>
 
-      <section id="biblio">
+      <section id="biblio" class="sec-5">
         <h2>Bibliography</h2>
         <ul>
-          <li>
-            <a href="#"
-              >Polychromatic Coloring of Tuples in Hypergraphs (main paper)</a
-            >
+          <li id="ref1">
+            <a href="https://en.wikipedia.org/wiki/Hypergraph">Hypergraph</a>
           </li>
         </ul>
       </section>
