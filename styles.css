@@ -191,3 +191,19 @@ nav a.active {
 iframe {
   margin: 0;
 }
+
+.theorem {
+  border-left: 4px solid #007cf0;
+  padding: 0.75rem 1rem;
+  margin: 2rem 0;
+  background: #f8fbff;
+}
+
+.theorem-title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.theorem-body {
+  font-style: italic;
+}

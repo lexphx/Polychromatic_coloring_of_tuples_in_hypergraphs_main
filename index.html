@@ -7,6 +7,7 @@
     <title>Polychromatic Coloring of Tuples in Hypergraphs</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
   </head>
   <body>
     <nav class="nav">
@@ -40,16 +41,16 @@
           A <strong>tuple</strong> is a subset of vertices of such graph.<br />
           A <strong>hyperedge</strong> is a single connection that can join any
           number of vertices at once, for example, all vertices of a
-          <em>t-tuple</em>, unlike a usual edge which joins only 2.<br />
-          A <strong>coloring</strong> is a mapping of <em>t</em> tuples into
-          <em>k</em> colors (assigning particular color to a tuple of vertices).
-          A coloring is called <em>(t,k,f) polychromatic</em> if each hyperedge
-          that has at least f vertices, contains tuples of all the k colors.<br />
-          <em>f<sub>H</sub>(t,k)</em> is the smallest number of vertices
-          <em>f</em> such that we can color all <em>t-tuples</em> of a
-          hypergraph <em>H</em> with <em>k</em> colors.<br />
-          In this work we focus on the case of 2-tuples (pairs), i.e.
-          <em>t</em>=2.
+          \(t-tuple\), unlike a usual edge which joins only 2.<br />
+          A <strong>coloring</strong> is a mapping of \(t\) tuples into
+          \(k\) colors (assigning particular color to a tuple of vertices).
+          A coloring is called \((t,k,f)-polychromatic\) if each hyperedge
+          that has at least f vertices, contains tuples of all the \(k\) colors.<br />
+          \(f_{\mathcal{H}}(2,k)\) is the smallest number of vertices
+          \(f\) such that we can color all \(t-tuples\) of a
+          hypergraph \(H\) with \(k\) colors.<br />
+          In this piece we focus on the case of \(2-tuples\) (pairs), i.e.
+          \(t=2\).
         </p>
         <section class="overview-figure"> 
           <figure class="center-figure">
@@ -70,9 +71,9 @@
           shapes (disks, squares, polygons) that together cover every point of
           some region, and in fact every point is covered several times. A
           family of shapes is called <em>cover-decomposable</em> if, whenever
-          the covering is "thick enough", we can split the shapes into a few
+          the covering is thick enough, we can split the shapes into a few
           groups (typically 2) so that each group still covers every point. In
-          the 2-color case, this means we can color each shape red or blue,
+          the \(2-color\) case, this means we can color each shape red or blue,
           without moving or cutting any shape, in such a way that every point is
           covered by at least one red shape and at least one blue shape.
         </p>
@@ -80,7 +81,7 @@
           <strong>Polychromatic coloring</strong> and
           <strong>cover-decomposition</strong> are interwined concepts in
           hypergraph theory with a rich history. The core idea is to color
-          vertices so that every "sufficiently large" hyperedge is
+          vertices so that every sufficiently large hyperedge is
           <em>polychromatic</em> - meaning it contains points of all the
           different colors. These problems have been studied since 1980s
           [39,40,42,43] and remain a lively area of research today
@@ -89,15 +90,15 @@
         <p>
           A key question that sparked much of this study was posed by Pach in
           1980 [39]. He asked whether there is a universal constant
-          <em>f</em> such that any finite set of points in the plane can be
+          \(f\) such that any finite set of points in the plane can be
           colored with 2 colors in a way that every unit disk containing at
-          least <em>f</em> of these points will have points of both colors. In
+          least \(f\) of these points will have points of both colors. In
           other words, can we avoid a one-color <em>monochromatic</em> disk no
           matter how we 2-color the plane, provided the disk covers sufficiently
           many points. In 2016 Pach and Pálvölgyi [44] proved that the answer is
-          no - for any number <em>f ∈ ℕ</em>, there's a finite set of points
-          <em>P</em> in the plane such that for any 2-coloring of <em>P</em>,
-          one can find a unit disk containing at least <em>f</em> points of one
+          no - for any number \(f \in \mathbb{N}\), there's a finite set of points
+          \(P\) in the plane such that for any 2-coloring of \(P\),
+          one can find a unit disk containing at least \(f\) points of one
           color only. Their result showed that unit disks in the plane are not
           <em>cover-decomposable</em> under 2-colorings.
         </p>
@@ -107,7 +108,7 @@
           polygon instead of a disk, the outcome is positive. Pálvölgyi and Tóth
           [45] showed that convex polygons are cover-decomposable. Subsequent
           work even improved the bounds, showing that one can choose
-          <em>f(k)</em> on the order of <em>k</em> [8,26].
+          \(f(k)\) on the order of \(k\) [8,26].
         </p>
         <p>
           The difficulty with disks and other non-cover-decomposable cases
@@ -115,7 +116,7 @@
           work, could we color larger groups of vertices instead? This idea
           gives rise to <strong>tuple coloring</strong>, a generalization of the
           problem. Instead of assigning colors to individual points, we assign
-          colors to every ordered tuple of <em>t</em> points.
+          colors to every ordered tuple of \(t\) points.
         </p>
       </section>
 
@@ -124,16 +125,16 @@
         <p>First we explain defintions required to proceed.</p>
         <p>
           <strong>Shrinkability</strong> is a hypergraph property when any
-          hyperedge <em>e</em> can be shrinked to a sub-edge <em>e'</em> of any
+          hyperedge \(e\) can be shrinked to a sub-edge \(e'\) of any
           desired size(up to the size of the initial hyperedge) and that
           sub-edge is still an edge of the hypergraph.
         </p>
         <p>
           The <strong>VC-dimension</strong> of a hypergraph is a measure of its
-          complexity. A set of points <em>X</em> is said to be
-          <strong>shattered</strong> in a hypergraph <em>H</em> if, by intersecting edges
-          with <em>X</em> we can realize every possible pattern of which points
-          of <em>X</em> are inside and which are outside, in other words 
+          complexity. A set of points \(X\) is said to be
+          <strong>shattered</strong> in a hypergraph \(H\) if, by intersecting edges
+          with \(X\) we can realize every possible pattern of which points
+          of \(X\) are inside and which are outside, in other words 
           <em>shatter</em> the points. <strong>VC-dimension</strong> of a hypergraph 
           is the size of the largest <em>shattered</em> set.
           <section class="overview-figure">
@@ -147,41 +148,64 @@
           </section>
         </p>
         <p>
-          <strong>Depth</strong> of a tuple <em>d<sub>H</sub>(S), S ⊆ V</em> 
+          <strong>Depth</strong> of a tuple \(d_H(S)\), \(S \subseteq V\)</em> 
           is the minimum number of other vertices included inside the disk, 
-          formed by S, in other words how many other points the disk containing 
+          formed by \(S\), in other words how many other points the disk containing 
           the tuple is forced to include. No matter which hyperedge we pick that 
-          contains this tuple, we are forced to take <em>d<sub>H</sub>(S)</em> other vertices
+          contains this tuple, we are forced to take \(d_H(S)\) other vertices
           along with it.
         </p>
         <p>
-          <strong>&epsilon;-<em>t</em>-Net</strong> is a subset of <em>t-tuples</em> of <em>V</em> if 
-          any hyperedge in <em>E</em> (whose size is up to |V|) contains at least one 
-          of the chosen <em>t-tuples</em>.
+          \(\boldsymbol{\varepsilon\text{-}t\textbf{-Net}}\) is a subset of \(t-tuples\) of \(V\) if 
+          any hyperedge in \(E\) (whose size is up to \(|V|)\) contains at least one 
+          of the chosen \(t-tuples\).
         </p>
       </section>
 
       <section id="demo1" class="sec-4">
         <h2>Polychromatic Pairs in Disks — the 3.7<sup>k</sup> Threshold</h2>
-        <p>We start by presenting upper bounds on <em>f(t,k)</em> for hypergraphs. It is intersecting
-          because for abstract hypergraphs, <em>f(t,k)</em> is <u>unbounded</u> even if the hypergraph is 
-          uniform(all hyperedges have the same size) and <em>k</em>(number of colors) is 2. This is due to
-          Ramsey theorem [35]: given a tuple size <em>t</em> and colors <em>k</em>, for every way to color
-          all <em>t-tuples</em> with <em>k</em> colors, we can always find a subset of <em>m</em> vertices
-          whose every <em>t-tuple</em> has the same color.
+        <p>We start by presenting upper bounds on \(f(t,k)\) for hypergraphs. It is intersecting
+          because for abstract hypergraphs, \(f(t,k)\) is <u>unbounded</u> even if the hypergraph is 
+          uniform(all hyperedges have the same size) and \(k\) (number of colors) is 2. This is due to
+          Ramsey theorem [35]: given a tuple size \(t\) and colors \(k\), for every way to color
+          all \(t-tuples\) with \(k\) colors, we can always find a subset of \(m\) vertices
+          whose every \(t-tuple\) has the same color.
         </p>
         <p>
-          By [44] <em>f(t,2)</em> with t=1 is unbounded for hypergraphs that are defined by points 
-          and disks. However, this is not the case for <em>t</em>=2. 
+          By [44] \(f(2,k)\) with \(t=1\) is unbounded for hypergraphs that are defined by points 
+          and disks. However, this is not the case for \(t=2\).
         </p>
-        <p><strong>Theorem 1.5.</strong>
-          Let ℋ be the family of geometric hypergraphs induced by disks in ℝ²:
-          the vertex set is a finite point set <em>P</em>, and each hyperedge is the
-          intersection of <em>P</em> with a disk. Then the pairs of points (2-tuples)
-          of every <em>H</em> ∈ ℋ admit a <em>k</em>-coloring such that every disk
-          containing at least 3.7<sup>k</sup> points of <em>P</em> contains a pair of every color.
-          Equivalently,
-          <em>f</em><sub>ℋ</sub>(2, k) ≤ 3.7<sup>k</sup>.
+        <p>
+          <div class="theorem">
+            <div class="theorem-title">Theorem 1.5.</div>
+              <div class="theorem-body">
+                Let \(\mathcal{H}\) be the family that contains any hypergraph \(H\) that can be obtained
+                by taking a finite set \(P\) of points in \(\mathbb{R}^2\) in general position, setting
+                \(V(H) := P\) and
+                \(E(H) := \{ d \cap P : d \text{ is a disk in } \mathbb{R}^2 \}\).
+                Then, for any natural number \(k\), it holds that
+                \(f_{\mathcal{H}}(2,k) \le 3.7^{k}\).
+              </div>
+            </div>
+        </p>
+        <p>
+          In other words, for any finite set \(P\) of points in the plane, the
+          \(\binom{|P|}{2}\) pairs of points can be \(k\)-colored such that any disk 
+          containing at least \(3.7^{k}\) points must also contain a pair of points 
+          from each of the \(k\) color classes. 
+        </p>
+        <p>
+          In the next demo we illustrate the bound \(f_{\mathcal{H}}(2,k) \le 3.7^{k}\) using 
+          a random point set in the plane. We first generate a cloud of random points and rescale them 
+          to fit nicely in the viewport. Then we draw a disk that one can move and resize. At any moment
+          we look only at the points currently inside the disk. For every pair of points inside, we compute 
+          its <strong>depth</strong>: we look at all circles that go through the pair (one defined by the 
+          pair as a diameter, and the circumcircles obtained by adding each possible third point) and take the 
+          circle with the least amount of points inside. The <strong>depth</strong> is the number of 
+          <em>other</em> points that this circle is forced to include. Deeper pairs (i.e. pairs surrounded by 
+          many other pairs) get higher colors in the list. Concretely, we bucket the depth into ranges that grow
+          like powers of \(3.7\): roughly speaking, color 1 is shallow pairs, color 2 is pairs with depth between
+          \(3.7\) and \(3.7^{2}\), and so on up to \(k\) colors.
         </p>
         <p>
           <div class="demo-card">
@@ -203,6 +227,18 @@
               </div>
           </div>
         </p>
+        <p>
+          The interface lets you choose the number of colors \(k \in \{3,4,5\}\) and the total number of points
+          (up to 200). At each frame, the app only draws edges between points that lie entirely inside the disk
+          and colors them according to their depth bucket. An informative leged in the top-left corner shows which colors
+          actually appear inside the current disk; as soon as all \(k\) colors are present, the app labels the 
+          disk as <strong>polychromatic</strong> - visually echoing the theoretical statement that once a disk 
+          contains enough points (on the order of \(3.7^{k}\)), it must contain edges of all colors. For small \(k\)
+          and moderate point counts this is easy to see. However, for larger \(k\), the required depths blow up since
+          \(3.7^{k}\) grows fast, the deep colors become rare and the computation gets heavy enough that the browser
+          start to lag.
+        </p>
+        
       </section>
 
       <section id="biblio" class="sec-5">
