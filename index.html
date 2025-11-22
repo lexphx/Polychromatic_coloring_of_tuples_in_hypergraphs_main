@@ -15,7 +15,8 @@
         <li><a href="#abstract">Abstract</a></li>
         <li><a href="#intro">Introduction</a></li>
         <li><a href="#prelimin">Preliminaries</a></li>
-        <li><a href="#demo1">The 3.7<sup>k</sup> Threshold</a></li>
+        <li><a href="#demo1">The \(3.7^{k}\) Threshold</a></li>
+        <li><a href="#demo2">The \(\sqrt{c\,k \ln k}\) Threshold</a></li>
         <li><a href="#biblio">Bibliography</a></li>
       </ul>
     </nav>
@@ -162,8 +163,8 @@
         </p>
       </section>
 
-      <section id="demo1" class="sec-4">
-        <h2>Polychromatic Pairs in Disks — the 3.7<sup>k</sup> Threshold</h2>
+      <section id="demo1" class="demo">
+        <h2>Polychromatic Pairs in Disks — the \(3.7^{k}\) Threshold</h2>
         <p>We start by presenting upper bounds on \(f(t,k)\) for hypergraphs. It is intersecting
           because for abstract hypergraphs, \(f(t,k)\) is <u>unbounded</u> even if the hypergraph is 
           uniform(all hyperedges have the same size) and \(k\) (number of colors) is 2. This is due to
@@ -195,7 +196,7 @@
           from each of the \(k\) color classes. 
         </p>
         <p>
-          In the next demo we illustrate the bound \(f_{\mathcal{H}}(2,k) \le 3.7^{k}\) using 
+          In the next demo we illustrate the \(f_{\mathcal{H}}(2,k) \le 3.7^{k}\) bound using 
           a random point set in the plane. We first generate a cloud of random points and rescale them 
           to fit nicely in the viewport. Then we draw a disk that one can move and resize. At any moment
           we look only at the points currently inside the disk. For every pair of points inside, we compute 
@@ -239,6 +240,132 @@
           start to lag.
         </p>
         
+      </section>
+
+      <section id="demo2" class="demo">
+        <h2>Polychromatic Pairs in Rectangles and Disks — the \(\sqrt{c k \ln k}\) Threshold</h2>
+        <p>
+          For points and axis-parallel rectangles in the plane, we know from [21] that \(f(t,2)\) is 
+          unbounded when \(t=1\). However for \(t=2\) a result of [1] implies that \(f(2,k) \le k^{2}+1\).
+          We study the same problem but for grid points. 
+        </p>
+        <p>
+          <div class="theorem">
+            <div class="theorem-title">Theorem 1.7.</div>
+              <div class="theorem-body">
+                Let \(\mathcal{H}\) be the family of all hypergraphs \(H\) that can be obtained by taking
+                the vertex set \(P\) of a regular grid in \(\mathbb{R}^2\), setting \(V(H) := P\) and
+                \(E(H) := \{\, r \cap P : r \text{ is an axis-parallel rectangle in } \mathbb{R}^2 \,\}\).
+                Then for any natural number \(k \ge 2\) it holds that \(f_{\mathcal{H}}(2, k) \le \sqrt{c\,k \ln k}\),
+                for some constant \(c \ge 126\).
+              </div>
+            </div>
+          </p>
+          <p>
+            In other words, for grid points inside an axis-parallel rectangle, there is a contant \(c\) such that,  
+            any rectangle contains at least \(\sqrt{c\,k \ln k}\) points is guaranteed to contain all \(k\) 
+            colors among its pairs.
+          </p>
+          <p>
+            <div class="demo-card">
+              <div class="demo-frame-wrapper">
+                <iframe
+                  src="https://lexphx.github.io/cklnk_rect_bound/"
+                  title="Polychromatic rectangles demo"
+                  loading="lazy"
+                  style="width: 100%; height: 100%; border: 0; display: block;"
+                ></iframe>
+              </div>
+              <div class="demo-btn-wrapper">
+                <button
+                    class="demo-open-btn"
+                    onclick="window.open('https://lexphx.github.io/cklnk_rect_bound/', '_blank')"
+                  >
+                    Open full version
+                  </button>
+                </div>
+            </div>
+          </p>
+          <p>
+            We start by placing \( n \times n \) grid of points and color each point independently 
+            with one of the \(k\) colors (you can choose \(3 \le k \le 5\) and up to 200 points). 
+            To explore the theorem, you draw an axis-parallel rectangle by clicking and dragging. 
+            As soon as you release the mouse, we look only at the grid points inside your rectangle.
+          </p>
+          <p>
+            Inside that rectangle we count, for each color, how many points of that color are inside.  
+            Let \(M\) be the largest of these counts \(-\) this is the size of the most frequent color 
+            class in your rectangle. We highlight those \(M\) points and show three numbers in the legend:
+          </p>
+          
+          <ul>
+            <li>\(M\) \(-\) the largest number of points of a single color inside your rectangle;</li>
+            <li>\(\sqrt{k \ln k}\) \(-\) the theoretical scale from Theorem 1.7, which says that
+                \(f_{\mathcal H}(2,k) \le \sqrt{c\,k\ln k}\) for some constant \(c \ge 126\);</li>
+            <li>\(\hat c\) \(-\) an experimental estimate of the constant, computed as
+                \(\hat c = \dfrac{M^2}{k \ln k}\).  
+                This comes from rearranging the formula \(M \approx \sqrt{c\,k\ln k}\).</li>
+          </ul>
+          
+          <p>
+            Note that once you fix \(k\), the value \(k \ln k\) is constant, so changing the 
+            rectangle only affects \(M\) and therefore the observed \(\hat c\). 
+          </p>
+          <p>
+            The goal of the visualization is to give an intuition that the largest monochromatic 
+            cluster inside a rectangle grows on the order of \(\sqrt{k \ln k}\), up to the constant \(c\).
+          </p>
+          <p>
+            In the next demo we switch from axis-parallel rectangles to disks and to coloring the <em>points</em> 
+            themselves rather than pairs. Instead of asking when a range becomes fully polychromatic, we now ask 
+            the opposite question: how big can a <em>monochromatic</em> unit disk be? For a random coloring of 
+            the points with \(k\) colors, the app searches for the unit disk that captures the largest number \(M\)
+            of points of a single color and compares this to the theoretical scale \(\sqrt{k \ln k}\). In this way, 
+            the rectangle demo and the disk demo give two complement views on how color classes can cluster inside
+            geometric ranges.
+          </p>
+          <p>
+            <div class="demo-card">
+              <div class="demo-frame-wrapper">
+                <iframe
+                  src="https://lexphx.github.io/Polychromatic-coloring-of-tuples-in-hypergraphs-2/"
+                  title="Polychromatic rectangles demo"
+                  loading="lazy"
+                  style="width: 100%; height: 100%; border: 0; display: block;"
+                ></iframe>
+              </div>
+              <div class="demo-btn-wrapper">
+                <button
+                    class="demo-open-btn"
+                    onclick="window.open('https://lexphx.github.io/Polychromatic-coloring-of-tuples-in-hypergraphs-2/', '_blank')"
+                  >
+                    Open full version
+                  </button>
+                </div>
+            </div>
+          </p>
+          <p>
+            The radius of the disk is fixed, only its center and color change. At startup (and whenever we change 
+            the number of points or colors), we look for the "worst" monochromatic unit disk: a disk of radius 1
+            that contains as many points of a single color as possible. This "worst" in the sense that it most
+            strongly concentrates one color and comes closest to violating the expected bound on how large such a
+            monochromatic cluster should be. 
+          </p>
+          <p>
+            We proceed as follows. First, we split all points into buckets by color, one bucket for each of \(k\)
+            colors. For each bucket we search over many possible disk centers and find the maximum number \(M\) 
+            of points of that color that can fit inside one unit disk. This gives us an \(M\) for each color. We then
+            pick a color whose \(M\) is largest - this is the color with the "worst" unit disk. In the demo, we draw 
+            that disk, color with the dominant color, highlight the points it contains, and report the values of \(M\),
+            \(\sqrt{k \ln k}\), and the empirical constant \(\hat c = \dfrac{M^2}{k \ln k}\) in the legend.
+          </p>
+          <p>
+            The demo also has an interactive element: the user click anywhere in the viewport to move the center
+            of the unit disk to that point. For this chosen center, we look at all points currently inside the disk, 
+            find which color occurs most often (the "heaviest" color), and show its count \(M\). The disk is then drawn 
+            in that color and the points of that color inside the disk are highlighted. This allows to visually inspect
+            how large monochromatic clusters look in practice.
+          </p>
       </section>
 
       <section id="biblio" class="sec-5">
