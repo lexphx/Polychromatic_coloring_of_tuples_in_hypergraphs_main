@@ -468,18 +468,18 @@
           display its circle and points in black, giving a concrete example of a "heavy" 4-tuple. 
         </p>
         <p>
-          The demo is also interactive. When you click on a point in the picture, we treat it as an "anchor" and
+          The demo is also interactive. When one clicks on a point in the picture, we treat it as an "anchor" and
           only look at 4-tuples that contain this clicked point. Among many random 4-tuples containing it, we again 
           search for the one with the largest depth: for each candidate 4-tuple we compute its smallest enclosing circle
           and count how many other points fall inside. The user defined 4-tuple with the best score is shown in red and
-          its four defining points are highlighted as well. As you click around, you can see how the depth changes 
+          its four defining points are highlighted as well. By clicking on points one can see how the depth changes 
           from place to place, giving a more local feeling for how "heavy" 4-tuples behave in this point set.
         </p>
       </section>
       <section id="demo4" class="demo">
         <h2>\(\varepsilon-t-Nets\) for Pairs in Disk Range Spaces</h2>
         <p>
-          After searching for a single deep \((d+1)\)-tuple in our point set, it's natural to ask for something stronger:
+          After searching for a single deep \((d+1)-\)tuple in our point set, it's natural to ask for something stronger:
           can we find many special tuples that collectively "guard" all large hyperedges? ("guard", in the sense that every 
           large enough hyperedge contains at least one of them.) This is exactly what \(\varepsilon-t-nets\) do. Instead of 
           one heavy 4-tuple, an \(\varepsilon-t-net\) is a collection of \(t-\)tuples with the property that every hyperedge
@@ -499,7 +499,7 @@
           </p>
           <p>
             To illustrate the theorem above, we switch to a one-dimensional setting by placing 
-            \(n\) points equally spaced on a horizontal line, like beads on a string. We represent 
+            \(n\) points equally spaced on a horizontal line(like beads on a string). We represent 
             hyperedges as intervals on that line (i.e., contiguous blocks of points). A slider 
             lets the user choose the value of \(\varepsilon\). An \(\varepsilon\)-2-net is then a 
             collection of pairs of points (drawn as arcs or line segments above the line) such that 
