@@ -561,17 +561,17 @@
         <p>
           In the first demos we focused on coloring <em>pairs</em> of points and looked at how many points a disk or
           an axis-parallel rectangle must contain before it is “forced” to see all colors.
-          For disks, the \(3.7^k\) threshold illustrates that very dense regions inevitably contain
-          pairs of every color; for rectangles on a grid, the \(k \ln k\) behavior shows a much more
-          modest but still systematic growth in the required number of points. The intermediate
-          \(\sqrt{k \ln k}\) bound for disks sits between these extremes and emphasizes that different
-          geometric ranges can lead to very different thresholds for polychromaticity.
+          For disks, the \(3.7^k\) threshold illustrates and exponential dependence on the number of colors.
+          For axis-parallel rectangles on a grid, the \(\sqrt{c\,k \ln k}\) behavior shows a much more
+          midler but still systematic growth in the required number of points. This contrast highlights how the 
+          same tuple-coloring framework can lead to very different thresholds for polychromaticity:
+          exponential in \(k\) for disks, but almost square-root in \(k\) for grid rectangles.
         </p>
       
         <p>
           We then moved from “how many colors appear?” to “how deep can a tuple sit?” by studying heavy
-          \((d+1)\)-tuples in range spaces of bounded VC-dimension. The heavy 4-tuple demo for disks is a
-          visual companion to the theorem guaranteeing a \((d+1)\)-tuple of depth \(\Omega(n)\): no matter how
+          \((d+1)-\)tuples in range spaces of bounded VC-dimension. The heavy 4-tuple demo for disks is a
+          visual companion to the theorem guaranteeing a \((d+1)-\)tuple of depth \(\Omega(n)\): no matter how
           we place the points, there is a small configuration of points that is surrounded by many others
           in every hyperedge that contains it. Finally, the \(\varepsilon\)-\(t\)-net demo in 1D recasts these ideas
           in terms of <em>guards</em>: carefully chosen tuples that every “large enough” hyperedge must contain,
