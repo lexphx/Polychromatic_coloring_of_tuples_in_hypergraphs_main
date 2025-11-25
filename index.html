@@ -17,6 +17,9 @@
         <li><a href="#prelimin">Preliminaries</a></li>
         <li><a href="#demo1">The \(3.7^{k}\) Threshold</a></li>
         <li><a href="#demo2">The \(\sqrt{c\,k \ln k}\) Threshold</a></li>
+        <li><a href="#demo3">Deep tuples in disks</a></li>
+        <li><a href="#demo4">\(\varepsilon-t-\)nets</a></li>
+        <li><a href="#concl">Conclusion</a></li>
         <li><a href="#biblio">Bibliography</a></li>
       </ul>
     </nav>
@@ -29,15 +32,15 @@
         <p><strong>Year:</strong> 2025</p>
       </div>
 
-      <section id="abstract" class="sec-1">
+      <section id="abstract" class="intro">
         <h2>Abstract</h2>
         <p>
           In mathematics, a <strong>hypergraph</strong> is a generalization of a
           graph in which an edge can join any number of vertices. In contrast,
           in an ordinary graph, an edge connects exactly two vertices.<a
-            href="#ref1"
+            href="#ref11"
             class="ref"
-            >[1]</a
+            >[11]</a
           ><br />
           A <strong>tuple</strong> is a subset of vertices of such graph.<br />
           A <strong>hyperedge</strong> is a single connection that can join any
@@ -46,7 +49,7 @@
           A <strong>coloring</strong> is a mapping of \(t\) tuples into
           \(k\) colors (assigning particular color to a tuple of vertices).
           A coloring is called \((t,k,f)-polychromatic\) if each hyperedge
-          that has at least f vertices, contains tuples of all the \(k\) colors.<br />
+          that has at least \(f\) vertices, contains tuples of all the \(k\) colors.<br />
           \(f_{\mathcal{H}}(2,k)\) is the smallest number of vertices
           \(f\) such that we can color all \(t-tuples\) of a
           hypergraph \(H\) with \(k\) colors.<br />
@@ -64,7 +67,7 @@
         </section>
       </section>
 
-      <section id="intro" class="sec-2">
+      <section id="intro" class="intro">
         <h2>Introduction</h2>
         <p>
           First, we briefly recall the notion of
@@ -85,18 +88,34 @@
           vertices so that every sufficiently large hyperedge is
           <em>polychromatic</em> - meaning it contains points of all the
           different colors. These problems have been studied since 1980s
-          [39,40,42,43] and remain a lively area of research today
-          [1,2,14,16,18,46].
+          <a
+            href="#ref4"
+            class="ref"
+            >[4]</a
+          > and remain a lively area of research today
+          <a
+            href="#ref2"
+            class="ref"
+            >[1,2]</a
+          >.
         </p>
         <p>
           A key question that sparked much of this study was posed by Pach in
-          1980 [39]. He asked whether there is a universal constant
+          1980 <a
+          href="#ref10"
+          class="ref"
+          >[10]</a
+        >. He asked whether there is a universal constant
           \(f\) such that any finite set of points in the plane can be
           colored with 2 colors in a way that every unit disk containing at
           least \(f\) of these points will have points of both colors. In
           other words, can we avoid a one-color <em>monochromatic</em> disk no
           matter how we 2-color the plane, provided the disk covers sufficiently
-          many points. In 2016 Pach and Pálvölgyi [44] proved that the answer is
+          many points. In 2016 Pach and Pálvölgyi <a
+          href="#ref5"
+          class="ref"
+          >[5]</a
+        > proved that the answer is
           no - for any number \(f \in \mathbb{N}\), there's a finite set of points
           \(P\) in the plane such that for any 2-coloring of \(P\),
           one can find a unit disk containing at least \(f\) points of one
@@ -107,9 +126,17 @@
           Naturally, researchers considered similar questions for other shapes
           and for more than 2 colors. For instance, if the region is a convex
           polygon instead of a disk, the outcome is positive. Pálvölgyi and Tóth
-          [45] showed that convex polygons are cover-decomposable. Subsequent
+          <a
+            href="#ref6"
+            class="ref"
+            >[6]</a
+          > showed that convex polygons are cover-decomposable. Subsequent
           work even improved the bounds, showing that one can choose
-          \(f(k)\) on the order of \(k\) [8,26].
+          \(f(k)\) on the order of \(k\) <a
+          href="#ref7"
+          class="ref"
+          >[7]</a
+        >.
         </p>
         <p>
           The difficulty with disks and other non-cover-decomposable cases
@@ -121,7 +148,7 @@
         </p>
       </section>
 
-      <section id="prelimin" class="sec-3">
+      <section id="prelimin" class="intro">
         <h2>Preliminaries</h2>
         <p>First we explain defintions required to proceed.</p>
         <p>
@@ -165,15 +192,23 @@
 
       <section id="demo1" class="demo">
         <h2>Polychromatic Pairs in Disks — the \(3.7^{k}\) Threshold</h2>
-        <p>We start by presenting upper bounds on \(f(t,k)\) for hypergraphs. It is intersecting
+        <p>We start by presenting upper bounds on \(f(t,k)\) for hypergraphs. It is interesting
           because for abstract hypergraphs, \(f(t,k)\) is <u>unbounded</u> even if the hypergraph is 
           uniform(all hyperedges have the same size) and \(k\) (number of colors) is 2. This is due to
-          Ramsey theorem [35]: given a tuple size \(t\) and colors \(k\), for every way to color
+          Ramsey theorem <a
+          href="#ref8"
+          class="ref"
+          >[8]</a
+        >: given a tuple size \(t\) and colors \(k\), for every way to color
           all \(t-tuples\) with \(k\) colors, we can always find a subset of \(m\) vertices
           whose every \(t-tuple\) has the same color.
         </p>
         <p>
-          By [44] \(f(2,k)\) with \(t=1\) is unbounded for hypergraphs that are defined by points 
+          By <a
+          href="#ref5"
+          class="ref"
+          >[5]</a
+        > \(f(2,k)\) with \(t=1\) is unbounded for hypergraphs that are defined by points 
           and disks. However, this is not the case for \(t=2\).
         </p>
         <p>
@@ -205,7 +240,7 @@
           circle with the least amount of points inside. The <strong>depth</strong> is the number of 
           <em>other</em> points that this circle is forced to include. Deeper pairs (i.e. pairs surrounded by 
           many other pairs) get higher colors in the list. Concretely, we bucket the depth into ranges that grow
-          like powers of \(3.7\): roughly speaking, color 1 is shallow pairs, color 2 is pairs with depth between
+          like powers of \(3.7\): color 1 is shallow pairs, color 2 is pairs with depth between
           \(3.7\) and \(3.7^{2}\), and so on up to \(k\) colors.
         </p>
         <p>
@@ -213,7 +248,7 @@
             <div class="demo-frame-wrapper">
               <iframe
                 src="https://lexphx.github.io/polychromatic_coloring_of_tuples_in_hypergraphs/"
-                title="Polychromatic disks demo"
+                title="Polychromatic disk demo"
                 loading="lazy"
                 style="width: 100%; height: 100%; border: 0; display: block;"
               ></iframe>
@@ -229,7 +264,7 @@
           </div>
         </p>
         <p>
-          The interface lets you choose the number of colors \(k \in \{3,4,5\}\) and the total number of points
+          The interface allows to choose the number of colors \(k \in \{3,4,5\}\) and the total number of points
           (up to 200). At each frame, the app only draws edges between points that lie entirely inside the disk
           and colors them according to their depth bucket. An informative leged in the top-left corner shows which colors
           actually appear inside the current disk; as soon as all \(k\) colors are present, the app labels the 
@@ -245,8 +280,16 @@
       <section id="demo2" class="demo">
         <h2>Polychromatic Pairs in Rectangles and Disks — the \(\sqrt{c k \ln k}\) Threshold</h2>
         <p>
-          For points and axis-parallel rectangles in the plane, we know from [21] that \(f(t,2)\) is 
-          unbounded when \(t=1\). However for \(t=2\) a result of [1] implies that \(f(2,k) \le k^{2}+1\).
+          For points and axis-parallel rectangles in the plane, we know from <a
+          href="#ref9"
+          class="ref"
+          >[9]</a
+        > that \(f(t,2)\) is 
+          unbounded when \(t=1\). However for \(t=2\) a result of <a
+          href="#ref2"
+          class="ref"
+          >[2]</a
+        > implies that \(f(2,k) \le k^{2}+1\).
           We study the same problem but for grid points. 
         </p>
         <p>
@@ -271,7 +314,7 @@
               <div class="demo-frame-wrapper">
                 <iframe
                   src="https://lexphx.github.io/cklnk_rect_bound/"
-                  title="Polychromatic rectangles demo"
+                  title="Polychromatic rectangle demo"
                   loading="lazy"
                   style="width: 100%; height: 100%; border: 0; display: block;"
                 ></iframe>
@@ -289,17 +332,17 @@
           <p>
             We start by placing \( n \times n \) grid of points and color each point independently 
             with one of the \(k\) colors (you can choose \(3 \le k \le 5\) and up to 200 points). 
-            To explore the theorem, you draw an axis-parallel rectangle by clicking and dragging. 
-            As soon as you release the mouse, we look only at the grid points inside your rectangle.
+            To explore the theorem, one can draw an axis-parallel rectangle by clicking and dragging. 
+            When a mouse is released, we look only at the grid points inside the drawn rectangle.
           </p>
           <p>
             Inside that rectangle we count, for each color, how many points of that color are inside.  
             Let \(M\) be the largest of these counts \(-\) this is the size of the most frequent color 
-            class in your rectangle. We highlight those \(M\) points and show three numbers in the legend:
+            class in the rectangle. We highlight those \(M\) points and show three numbers in the legend:
           </p>
           
           <ul>
-            <li>\(M\) \(-\) the largest number of points of a single color inside your rectangle;</li>
+            <li>\(M\) \(-\) the largest number of points of a single color inside the rectangle;</li>
             <li>\(\sqrt{k \ln k}\) \(-\) the theoretical scale from Theorem 1.7, which says that
                 \(f_{\mathcal H}(2,k) \le \sqrt{c\,k\ln k}\) for some constant \(c \ge 126\);</li>
             <li>\(\hat c\) \(-\) an experimental estimate of the constant, computed as
@@ -308,7 +351,7 @@
           </ul>
           
           <p>
-            Note that once you fix \(k\), the value \(k \ln k\) is constant, so changing the 
+            Note that once the user fixes \(k\), the value \(k \ln k\) is constant, so changing the 
             rectangle only affects \(M\) and therefore the observed \(\hat c\). 
           </p>
           <p>
@@ -329,7 +372,7 @@
               <div class="demo-frame-wrapper">
                 <iframe
                   src="https://lexphx.github.io/Polychromatic-coloring-of-tuples-in-hypergraphs-2/"
-                  title="Polychromatic rectangles demo"
+                  title="Polychromatic disk demo"
                   loading="lazy"
                   style="width: 100%; height: 100%; border: 0; display: block;"
                 ></iframe>
@@ -360,7 +403,7 @@
             \(\sqrt{k \ln k}\), and the empirical constant \(\hat c = \dfrac{M^2}{k \ln k}\) in the legend.
           </p>
           <p>
-            The demo also has an interactive element: the user click anywhere in the viewport to move the center
+            The demo also has an interactive element: the user can click anywhere in the viewport to move the center
             of the unit disk to that point. For this chosen center, we look at all points currently inside the disk, 
             find which color occurs most often (the "heaviest" color), and show its count \(M\). The disk is then drawn 
             in that color and the points of that color inside the disk are highlighted. This allows to visually inspect
@@ -368,14 +411,269 @@
           </p>
       </section>
 
+      <section id="demo3" class="demo">
+        <h2>Deep tuples in disks</h2>
+        <p>
+          After our previous demos, we have a fairly good intuition for how many points are needed so that every
+          rectangle or disk is polychromatic for pairs. But this still lives in the world of 2-tuples and specific 
+          geometric shapes. Now, we would like to take a more global viewpoint: instead of asking that every large
+          region be colorful, we look for small "core" tuples of vertices that are contained in many hyperedges.
+          A \((d+1)\) \(-\) tuple \(T\) with large depth \(d_{H}(T)\) is a very "popular" configuration(pattern
+          inside the whole point set): any disk (or hyperedge) that contains \(T\) is forced to contain at least \(n/c\)
+          other vertices. So \(T\) is a configuration that never appear alone \(-\) any range that catches it must
+          also catch many more points. 
+        </p>
+        <p>
+          <div class="theorem">
+            <div class="theorem-title">Theorem 1.10.</div>
+              <div class="theorem-body">
+                For every hypergraph \(H\) with VC-dimension at least \(2\) and at most \(d\) and
+                with \(n \ge 2d + 2\) vertices there exists a \((d+1)\)-tuple \(T\) of vertices
+                such that \(d_H(T) \ge \frac{n}{c}\), for \(c = 4(d+1)^{d+1}\).
+              </div>
+            </div>
+        </p>
+        <p>
+          In this demo we look at the range space of points and disks in the plane, which has VC-deminsion \(d = 3\). 
+          The theorem 1.10 guarantees the existence of a <strong>heavy 4-tuple</strong> whose depth is linear in \(n\) i.e. at least
+          \(\frac{n}{c}\) for some constant \(c\). Our visualization randomly samples 4-tuples, finds one with with large depth, and 
+          draws its smallest enclosing circle together with all the points lying inside it.
+        </p>
+        <p>
+          <div class="demo-card">
+            <div class="demo-frame-wrapper">
+              <iframe
+                src="https://lexphx.github.io/heavy_4_tuple/"
+                title="Heavy 4-tuple demo"
+                loading="lazy"
+                style="width: 100%; height: 100%; border: 0; display: block;"
+              ></iframe>
+            </div>
+            <div class="demo-btn-wrapper">
+              <button
+                  class="demo-open-btn"
+                  onclick="window.open('https://lexphx.github.io/heavy_4_tuple/', '_blank')"
+                >
+                  Open full version
+                </button>
+              </div>
+          </div>
+        </p>
+        <p>
+          Trying <em>all</em> 4-tuples would be far to expensive: there are \(\binom{n}{4}\) of them.
+          Instead, the code does a Monte Carlo search. It repeatedly picks four random points, computes the 
+          smallest circle that contains exactly these four (by checking circles through two or three of them),
+          and then counts how many other points also lie inside that circle. This count minus \(4\) is the <strong>depth</strong>
+          of that 4-tuple. During the simulation we keep track of the deepest 4-tuple we have seen so far and 
+          display its circle and points in black, giving a concrete example of a "heavy" 4-tuple. 
+        </p>
+        <p>
+          The demo is also interactive. When you click on a point in the picture, we treat it as an "anchor" and
+          only look at 4-tuples that contain this clicked point. Among many random 4-tuples containing it, we again 
+          search for the one with the largest depth: for each candidate 4-tuple we compute its smallest enclosing circle
+          and count how many other points fall inside. The user defined 4-tuple with the best score is shown in red and
+          its four defining points are highlighted as well. As you click around, you can see how the depth changes 
+          from place to place, giving a more local feeling for how "heavy" 4-tuples behave in this point set.
+        </p>
+      </section>
+      <section id="demo4" class="demo">
+        <h2>\(\varepsilon-t-Nets\) for Pairs in Disk Range Spaces</h2>
+        <p>
+          After searching for a single deep \((d+1)\)-tuple in our point set, it's natural to ask for something stronger:
+          can we find many special tuples that collectively "guard" all large hyperedges? ("guard", in the sense that every 
+          large enough hyperedge contains at least one of them.) This is exactly what \(\varepsilon-t-nets\) do. Instead of 
+          one heavy 4-tuple, an \(\varepsilon-t-net\) is a collection of \(t-\)tuples with the property that every hyperedge
+          that is large enough (contains at least an \(\varepsilon-\)fraction of all vertices) must contain at least one of
+          these tuples. 
+        </p>
+        <p>
+          <div class="theorem">
+            <div class="theorem-title">Theorem 1.12.</div>
+              <div class="theorem-body">
+                Let \(H\) be a hypergraph with \(n\) vertices such that \(f_H(1,x) = O(x)\) for any \(x \ge 1\).
+                Then for any \(0 < \varepsilon < 1\) and any \(t \ge 1\) the \(t\)-tuples of vertices of \(H\) can be
+                decomposed into \(\Omega\!\left(\left(\frac{\varepsilon n}{t}\right)^{t}\right)\) pairwise disjoint
+                \(\varepsilon\)-\(t\)-nets for \(H\). This bound is asymptotically tight when \(t\) is a constant.
+              </div>
+            </div>
+          </p>
+          <p>
+            To illustrate the theorem above, we switch to a one-dimensional setting by placing 
+            \(n\) points equally spaced on a horizontal line, like beads on a string. We represent 
+            hyperedges as intervals on that line (i.e., contiguous blocks of points). A slider 
+            lets the user choose the value of \(\varepsilon\). An \(\varepsilon\)-2-net is then a 
+            collection of pairs of points (drawn as arcs or line segments above the line) such that 
+            every interval containing at least \(\varepsilon n\) points contains at least one of these pairs.
+          </p>
+          <p>
+            <div class="demo-card">
+              <div class="demo-frame-wrapper">
+                <iframe
+                  src="https://lexphx.github.io/epsilon_t_nets/"
+                  title="Heavy 4-tuple demo"
+                  loading="lazy"
+                  style="width: 100%; height: 100%; border: 0; display: block;"
+                ></iframe>
+              </div>
+              <div class="demo-btn-wrapper">
+                <button
+                    class="demo-open-btn"
+                    onclick="window.open('https://lexphx.github.io/epsilon_t_nets/', '_blank')"
+                  >
+                    Open full version
+                  </button>
+                </div>
+            </div>
+          </p>
+          <p>
+            We use neighboring points as our “guards” because in one dimension every interval
+            that contains many points must also contain many <em>consecutive</em> pairs. If you look at
+            a long block of equally spaced points on a line, you can always walk through it by
+            stepping from one point to the next. So it is enough to choose some of these adjacent
+            pairs as our guard set: if an interval is large (has at least \(\varepsilon n\) points),
+            we expect it to contain at least one of the chosen pairs.
+          </p>
+          
+          <p>
+            To examine the \(\varepsilon\)-2-net property interactively, we let the user draw an
+            interval on the line, which represents a hyperedge in this 1D range space. Once the
+            interval is fixed, we count how many points it contains and compare this to the
+            threshold \(\varepsilon n\). If the interval is small (fewer than \(\varepsilon n\) points),
+            the theorem does not guarantee anything, so it is fine if no guard pair appears inside.
+            But if the interval is large (at least \(\varepsilon n\) points), the definition of an
+            \(\varepsilon\)-2-net says it <strong>must</strong> contain at least one guard pair. In the
+            demo, whenever this happens, we highlight a guard pair inside the selected interval
+            in green. This visually confirms the statement of the theorem: every “heavy”
+            interval (heavy = contains at least \(\varepsilon n\) points) is hit by our precomputed
+            set of guard pairs.
+          </p>
+          
+      </section>
+      <section id="concl" class="concl">
+        <h2>Conclusion</h2>
+        <p>
+          This project makes the abstract theory of polychromatic coloring of tuples in hypergraphs
+          feel concrete and visual. We demonstrate theoretical bounds on actual point sets, disks, rectangles, and simple 1D
+          configurations. The goal is to reproduce theoretical findings, and to give geometric intuition
+          for why such results are reasonable and how the underlying structures behave.
+        </p>
+      
+        <p>
+          In the first demos we focused on coloring <em>pairs</em> of points and looked at how many points a disk or
+          an axis-parallel rectangle must contain before it is “forced” to see all colors.
+          For disks, the \(3.7^k\) threshold illustrates that very dense regions inevitably contain
+          pairs of every color; for rectangles on a grid, the \(k \ln k\) behavior shows a much more
+          modest but still systematic growth in the required number of points. The intermediate
+          \(\sqrt{k \ln k}\) bound for disks sits between these extremes and emphasizes that different
+          geometric ranges can lead to very different thresholds for polychromaticity.
+        </p>
+      
+        <p>
+          We then moved from “how many colors appear?” to “how deep can a tuple sit?” by studying heavy
+          \((d+1)\)-tuples in range spaces of bounded VC-dimension. The heavy 4-tuple demo for disks is a
+          visual companion to the theorem guaranteeing a \((d+1)\)-tuple of depth \(\Omega(n)\): no matter how
+          we place the points, there is a small configuration of points that is surrounded by many others
+          in every hyperedge that contains it. Finally, the \(\varepsilon\)-\(t\)-net demo in 1D recasts these ideas
+          in terms of <em>guards</em>: carefully chosen tuples that every “large enough” hyperedge must contain,
+          connecting tuple coloring with sampling and hitting sets.
+        </p>
+      
+        <p>
+          Together, these experiments show a common theme: once a hypergraph (or geometric range space)
+          has enough structure—coming from geometry, bounded VC-dimension, or shrinkability—then we can impose
+          surprisingly strong coloring and guarding constraints on it.
+        </p>
+      </section>
+
       <section id="biblio" class="sec-5">
         <h2>Bibliography</h2>
-        <ul>
+        <ol>
           <li id="ref1">
-            <a href="https://en.wikipedia.org/wiki/Hypergraph">Hypergraph</a>
+            A. Biniaz, J.-L. De Carufel, A. Maheshwari, M. Smid, S. Smorodinsky, and M. Stojaković.
+            “Polychromatic Coloring of Tuples in Hypergraphs.”
+            <em>41st International Symposium on Computational Geometry (SoCG 2025)</em>,
+            LIPIcs, Article No. 19, pp. 19:1–19:17, 2025.
+            DOI: <a href="https://doi.org/10.4230/LIPIcs.SoCG.2025.19">10.4230/LIPIcs.SoCG.2025.19</a>.
+            Full version: <a href="https://arxiv.org/abs/2503.22449">https://arxiv.org/abs/2503.22449</a>.
           </li>
-        </ul>
+        
+          <li id="ref2">
+            E. Ackerman, B. Keszegh, and D. Pálvölgyi.
+            “Coloring Delaunay-edges and their generalizations.”
+            <em>Computational Geometry</em>, 96:101745, 2021.
+            DOI: <a href="https://doi.org/10.1016/j.comgeo.2021.101745">10.1016/j.comgeo.2021.101745</a>.
+          </li>
+        
+          <li id="ref3">
+            E. Ackerman, B. Keszegh, and M. Vizer.
+            “Coloring points with respect to squares.”
+            <em>Discrete &amp; Computational Geometry</em>, 58(4):757–784, 2017.
+            Also in SoCG’16.
+            DOI: <a href="https://doi.org/10.1007/s00454-017-9902-y">10.1007/s00454-017-9902-y</a>.
+          </li>
+        
+          <li id="ref4">
+            J. Pach.
+            “Covering the plane with convex polygons.”
+            <em>Discrete &amp; Computational Geometry</em>, 1:73–81, 1986.
+            DOI: <a href="https://doi.org/10.1007/BF02187684">10.1007/BF02187684</a>.
+          </li>
+        
+          <li id="ref5">
+            J. Pach and D. Pálvölgyi.
+            “Unsplittable coverings in the plane.”
+            <em>Advances in Mathematics</em>, 302:433–457, 2016.
+            DOI: <a href="https://doi.org/10.1016/j.aim.2016.07.011">10.1016/j.aim.2016.07.011</a>.
+          </li>
+        
+          <li id="ref6">
+            D. Pálvölgyi and G. Tóth.
+            “Convex polygons are cover-decomposable.”
+            <em>Discrete &amp; Computational Geometry</em>, 43(3):483–496, 2010.
+            DOI: <a href="https://doi.org/10.1007/s00454-009-9133-y">10.1007/s00454-009-9133-y</a>.
+          </li>
+        
+          <li id="ref7">
+            G. Aloupis, J. Cardinal, S. Collette, S. Langerman, D. Orden, and P. Ramos.
+            “Decomposition of multiple coverings into more parts.”
+            <em>Discrete &amp; Computational Geometry</em>, 44(3):706–723, 2010.
+            DOI: <a href="https://doi.org/10.1007/s00454-009-9238-3">10.1007/s00454-009-9238-3</a>.
+          </li>
+        
+          <li id="ref8">
+            D. Mubayi and A. Suk.
+            “A Survey of Hypergraph Ramsey Problems.”
+            In: <em>Surveys in Combinatorics 2020</em>, pp. 405–428.
+            Springer International Publishing, 2020.
+            DOI: <a href="https://doi.org/10.1007/978-3-030-55857-4_16">10.1007/978-3-030-55857-4_16</a>.
+          </li>
+        
+          <li id="ref9">
+            X. Chen, J. Pach, M. Szegedy, and G. Tardos.
+            “Delaunay graphs of point sets in the plane with respect to axis-parallel rectangles.”
+            <em>Random Structures &amp; Algorithms</em>, 34(1):11–23, 2009.
+            Also in SODA’08.
+            DOI: <a href="https://doi.org/10.1002/rsa.20246">10.1002/rsa.20246</a>.
+          </li>
+
+          <li id="ref10">
+            J. Pach.
+            “Decomposition of multiple packing and covering.”
+            <em>Kolloquium über Diskrete Geometrie</em>, Salzburg,
+            Institut für Mathematik, Universität Salzburg, pp. 169–178, 1980.
+          </li>
+        
+          <li id="ref11">
+            Wikipedia contributors.
+            “Hypergraph.” <em>Wikipedia, The Free Encyclopedia</em>.
+            Available at:
+            <a href="https://en.wikipedia.org/wiki/Hypergraph">https://en.wikipedia.org/wiki/Hypergraph</a>
+            (accessed November 22, 2025).
+          </li>
+        </ol>
+        
       </section>
+
     </main>
   </body>
 </html>

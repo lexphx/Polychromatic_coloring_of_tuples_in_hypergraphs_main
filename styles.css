@@ -208,3 +208,30 @@ iframe {
 .theorem-body {
   font-style: italic;
 }
+
+main {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fadeSlideIn 1s ease-out forwards;
+  animation-delay: 0.1s;
+}
+
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+header {
+  opacity: 0;
+  transform: translateY(-8px);
+  animation: fadeDownIn 1s ease-out forwards;
+}
+
+@keyframes fadeDownIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
