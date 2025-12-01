@@ -388,9 +388,21 @@
             cluster inside a rectangle grows on the order of \(\sqrt{k \ln k}\), up to the constant \(c\).
           </p>
           <p>
-            In the next demo we switch from axis-parallel rectangles to disks. Instead of asking when a range 
-            becomes fully polychromatic, we now ask 
-            the opposite question: how big can a <em>monochromatic</em> unit disk be? For a random coloring of 
+            In the next demo we switch from axis-parallel rectangles to disks. 
+          </p>
+          <p>
+            <div class="theorem">
+            <div class="theorem-title">Theorem 1.8.</div>
+              <div class="theorem-body">
+                Let \(\mathcal{H}\) be the family of all hypergraphs 
+                that can be obtained by grid points and boxes (or balls) in any fixed dimension \(d \ge 2\). 
+                Then for any natural numbers \(t \ge 1\) and \(k \ge 2\) it holds that 
+                \(f_{\mathcal{H}}(t,k) = O((k \ln k)^{1/t})\).
+              </div>
+            </div>
+          </p>
+          <p>
+            For a random coloring of 
             the points with \(k\) colors, the app searches for the unit disk that captures the largest number \(M\)
             of points of a single color and compares this to the theoretical scale \(\sqrt{k \ln k}\). In this way, 
             the rectangle demo and the disk demo give two complement views on how color classes can cluster inside
