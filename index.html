@@ -262,7 +262,7 @@
           <em>other</em> points that this circle is forced to include. Deeper pairs (i.e. pairs surrounded by 
           many other pairs) get higher colors in the list. Concretely, we bucket the depth into ranges that grow
           like powers of \(3.7\): color 1 is shallow pairs, color 2 is pairs with depth between
-          \(3.7\) and \(3.7^{2}\), and so on up to \(k\) colors.
+          \(1\) and \(3.7\), and so on up to \(k\) colors.
         </p>
         <p>
           <div class="demo-card">
@@ -429,7 +429,7 @@
             </div>
           </p>
           <p>
-            The radius of the disk is fixed, only its center and color change. At startup (and whenever we change 
+            The radius of the disk is fixed, only its center and color changes. At startup (and whenever we change 
             the number of points or colors), we look for the "worst" monochromatic unit disk: a disk of radius 1
             that contains as many points of a single color as possible. This "worst" in the sense that it most
             strongly concentrates one color and comes closest to violating the expected bound on how large such a
